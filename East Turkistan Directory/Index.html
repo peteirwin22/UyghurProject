@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+    <title>East Turkistan Test</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=yes">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js">
+    </script>
+    <style>
+        body { margin: 0; padding: 0; }
+        #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+        .marker {
+        background-image: url('Pin icon maps.png');
+        background-size: cover;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        cursor: pointer;
+        }
+        .custom-popup {
+        font-family: Arial, sans-serif;
+        background-color: #ffffff;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .custom-popup h3 {
+        margin: 0;
+        font-size: 18px;
+        color: #333;
+    }
+
+    .custom-popup p {
+        margin: 5px 0 0;
+        font-size: 14px;
+        color: #666;
+    }
+</style>
+</head>
+
+<body>
+<div id="map"></div>
+<script>
+	mapboxgl.accessToken = 'pk.eyJ1IjoidXlnaHVycHJvamVjdCIsImEiOiJjbGdsYXNheXQwYmM5M2ZwNjkxMjE2aXo3In0.zcOc1ObqnDYJ1nMeBUXk1g';
+    // Set bounds to East Turkistan.
+    const bounds = [
+    [65.372843, 29.315441], // Southwest coordinates
+    [103.851697, 50.394731] // Northeast coordinates
+    ];
+
+    const map = new mapboxgl.Map({
+        container: 'map', // container ID
+        // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+        style: 'mapbox://styles/uyghurproject/clglcjm9n003201p7307ostfz', // style URL
+        center: [85.031551, 41.437600], // starting position
+        zoom: 5, // starting zoom
+        maxZoom: 15,
+        maxBounds: bounds // Set the map's geographical boundaries.
+    });
+    
+    const geojson = {
+  type: 'FeatureCollection',
+  features: [
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [75.993790, 39.467686]
+      },
+      properties: {
+        title: 'Kashgar',
+        description: 'xxx'
+      }
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [80.57183789958336, 42.082338501222424]
+      },
+      properties: {
+        title: 'Tengritagh',
+        description: 'xxx'
+      }
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [87.579271, 43.869637]
+      },
+      properties: {
+        title: 'Ürümchi',
+        description: 'xxx'
+      }
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [91.312295, 43.240008]
+      },
+      properties: {
+        title: 'Karez',
+        description: 'xxx'
+      }
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [76.02570136037698, 39.491175419485046]
+      },
+      properties: {
+        title: 'Afāq Khoja Mazar',
+        description: 'xxx'
+      }
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [75.984106, 39.47227]
+      },
+      properties: {
+        title: 'Id Kah Mosque',
+        description: 'xxx'
+      }
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [75.991097, 39.470560]
+      },
+      properties: {
+        title: 'Kashgar Old City',
+        description: 'xxx'
+      }
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [76.00341010795115, 39.473523609676604]
+      },
+      properties: {
+        title: 'Kashgar Sunday Bazaar',
+        description: 'xxx'
+      }
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [82.94300836388604, 41.72185306836915]
+      },
+      properties: {
+        title: 'Kucha',
+        description: 'xxx'
+      }
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [77.65247043710157, 38.90470743361123]
+      },
+      properties: {
+        title: 'Mekit',
+        description: 'xxx'
+      }
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [89.063889, 42.950556]
+      },
+      properties: {
+        title: 'Yarkhoto',
+        description: 'xxx'
+      }
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [89.5319301614952, 42.860258721950665]
+      },
+      properties: {
+        title: 'Karakhoja',
+        description: 'xxx'
+      }
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [89.53973046492618, 42.95555292339824]
+      },
+      properties: {
+        title: 'Bezeklik Thousand Buddha Caves',
+        description: 'xxx'
+      }
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [89.53069322303334, 42.8766519402973]
+      },
+      properties: {
+        title: 'Astana Cemetery',
+        description: 'xxx'
+      }
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [89.20321147720944, 42.934552983971685]
+      },
+      properties: {
+        title: 'Emin Minaret',
+        description: 'xxx'
+      }
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [87.58392957153934, 43.81958812664162]
+      },
+      properties: {
+        title: 'Xinjiang Regional Museum',
+        description: 'xxx'
+      }
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [88.13403430978903, 43.88841905825643]
+      },
+      properties: {
+        title: 'Boghda Kul (Heavenly Lake)',
+        description: 'xxx'
+      }
+      
+    }
+    
+  ]
+};
+
+// add markers to map
+for (const feature of geojson.features) {
+  // create a HTML element for each feature
+  const el = document.createElement('div');
+  el.className = 'marker';
+
+  // make a marker for each feature and add to the map
+    // make a marker for each feature and add to the map
+    new mapboxgl.Marker(el)
+        .setLngLat(feature.geometry.coordinates)
+        .setPopup(
+            new mapboxgl.Popup({ offset: 25 }) // add popups
+                .setHTML(`
+                    <div class="custom-popup">
+                        <h3>${feature.properties.title}</h3>
+                        <p>${feature.properties.description}</p>
+                    </div>
+                `)
+        )
+        .addTo(map);
+}
+</script>
+
+</body>
+</html>
